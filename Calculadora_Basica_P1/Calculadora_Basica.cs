@@ -21,6 +21,10 @@ namespace Calculadora_Basica_P1 {
 
         //Tratamento do inputs
         private void txt_Inputs(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == '.') {
+                e.KeyChar = ',';
+            }
+
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != ',');
 
             if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1)) {
